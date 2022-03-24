@@ -204,9 +204,9 @@ function ThreeColsConstrained() {
           </div>
 
           <div className="bg-gray-50 hidden lg:block pr-4 sm:pr-6 lg:pr-8 lg:flex-shrink-0 lg:border-l lg:border-gray-200 xl:pr-0">
-            <div className="h-full pl-6 py-6 lg:w-80">
+            <div className=" py-6 pl-6  lg:w-80">
               {/* Start right column area */}
-              <div className="fixed md:w-80">
+              <div className="fixed max-h-[72vh] overflow-y-auto md:w-80">
                 <VerticalNavigation />
               </div>
               {/* End right column area */}

@@ -84,8 +84,8 @@ function CardWithAvatar() {
   };
 
   return (
-    <div className="bg-gray-200 p-1 my-5 rounded-md py-5 space-y-3 ">
-      <div className="flex flex-row-reverse">
+    <div className="bg-gray-100 p-1 my-5 rounded-lg py-5 space-y-3 ">
+      <div className="flex md:px-2 flex-row-reverse">
         <div className="flex-shrink-0">
           <img
             className="h-10 w-10 ml-2 rounded-full"
