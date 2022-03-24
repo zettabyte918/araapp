@@ -126,31 +126,28 @@ function ThreeColsConstrained() {
                   >
                     المجموعات
                   </Disclosure.Button>
-                </div>
-                <div className="pt-4 pb-3 border-t border-indigo-800">
-                  <div className="px-2">
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
-                    >
-                      المقالات
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
-                    >
-                      الصور
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
-                    >
-                      الوثائق
-                    </Disclosure.Button>
-                  </div>
+
+                  <Disclosure.Button
+                    as="a"
+                    href="#"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
+                  >
+                    المقالات
+                  </Disclosure.Button>
+                  <Disclosure.Button
+                    as="a"
+                    href="#"
+                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
+                  >
+                    الصور
+                  </Disclosure.Button>
+                  <Disclosure.Button
+                    as="a"
+                    href="#"
+                    className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
+                  >
+                    الوثائق
+                  </Disclosure.Button>
                 </div>
               </Disclosure.Panel>
             </>
@@ -197,6 +194,9 @@ function ThreeColsConstrained() {
                 {/* <div className="relative h-full" style={{ minHeight: "36rem" }}>
                   <div className="absolute inset-0 border-2 border-gray-200 border-dashed rounded-lg" />
                 </div> */}
+                <CardWithAvatar />
+                <CardWithAvatar />
+                <CardWithAvatar />
                 <CardWithAvatar />
                 {/* End main area */}
               </div>

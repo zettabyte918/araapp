@@ -1,20 +1,78 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import { Menu, Transition, Listbox } from "@headlessui/react";
+
 import {
   CodeIcon,
   DotsVerticalIcon,
   FlagIcon,
   StarIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/solid";
+
+import {
+  EmojiHappyIcon,
+  EmojiSadIcon,
+  FireIcon,
+  HeartIcon,
+  PaperClipIcon,
+  ThumbUpIcon,
+  XIcon,
+} from "@heroicons/react/solid";
+
+const moods = [
+  // {
+  //   name: "Excited",
+  //   value: "excited",
+  //   icon: FireIcon,
+  //   iconColor: "text-white",
+  //   bgColor: "bg-red-500",
+  // },
+  {
+    name: "الحب",
+    value: "الحب",
+    icon: HeartIcon,
+    iconColor: "text-white",
+    bgColor: "bg-indigo-400",
+  },
+  // {
+  //   name: "Happy",
+  //   value: "happy",
+  //   icon: EmojiHappyIcon,
+  //   iconColor: "text-white",
+  //   bgColor: "bg-green-400",
+  // },
+  // {
+  //   name: "Sad",
+  //   value: "sad",
+  //   icon: EmojiSadIcon,
+  //   iconColor: "text-white",
+  //   bgColor: "bg-yellow-400",
+  // },
+  {
+    name: "ممتاز",
+    value: "ممتاز",
+    icon: ThumbUpIcon,
+    iconColor: "text-white",
+    bgColor: "bg-blue-500",
+  },
+  {
+    name: "أنا لا اشعر بشيء",
+    value: null,
+    icon: XIcon,
+    iconColor: "text-gray-400",
+    bgColor: "bg-transparent",
+  },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function CardWithAvatar() {
+  const [selected, setSelected] = useState(moods[2]);
   return (
-    <div className="bg-white  py-5 space-y-3 ">
+    <div className="bg-indigo-200 p-1 my-5 rounded-md py-5 space-y-3 ">
       <div className="flex flex-row-reverse">
         <div className="flex-shrink-0">
           <img
@@ -24,10 +82,14 @@ function CardWithAvatar() {
           />
         </div>
         <div dir="rtl" className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-sm flex font-medium text-gray-900">
             <a href="#" className="hover:underline">
               أحمد خالد مصطفى
             </a>
+            <CheckCircleIcon
+              className="-ml-1 h-5 w-5 mr-1 text-indigo-600 group-hover:text-gray-500"
+              aria-hidden="true"
+            />
           </p>
           <p className="text-sm text-gray-500">
             <a href="#" className="hover:underline">
@@ -122,12 +184,95 @@ function CardWithAvatar() {
           </Menu>
         </div>
       </div>
-      <div dir="rtl" className="text-gray-600 px-4 pt-5 pb-5 sm:p-6 sm:pt-0">
+      <div dir="rtl" className="text-gray-700 px-4 pt-5 pb-2 space-y-2 sm:pt-0">
         <p>
           🎊 كونوا على الموعد مع أول لايف مباشر للدكتور - أحمد خالد مصطفى - حول
           مشروع المختارون.. اليوم 22 مارس ⏱️ على الساعة 10 ليلا بتوقيت مصر 🇪🇬
           حصريا على الصفحة الرسمية للمختارين 👇
         </p>
+        <div dir="rtl" className="flex items-center">
+          <Listbox value={selected} onChange={setSelected}>
+            {({ open }) => (
+              <>
+                <Listbox.Label className="sr-only">Your mood</Listbox.Label>
+                <div className="relative">
+                  <Listbox.Button className="relative -m-2.5 w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-500">
+                    <span className="flex items-center justify-center">
+                      {selected.value === null ? (
+                        <span className="flex items-center">
+                          <span>0</span>
+                          <EmojiHappyIcon
+                            className="flex-shrink-0 mr-2 h-5 w-5"
+                            aria-hidden="true"
+                          />
+                          <span className="sr-only">Add your mood</span>
+                        </span>
+                      ) : (
+                        <span>
+                          <div
+                            className={classNames(
+                              selected.bgColor,
+                              "w-8 h-8 rounded-full flex items-center justify-center"
+                            )}
+                          >
+                            <selected.icon
+                              className="flex-shrink-0 h-5 w-5 text-white"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <span className="sr-only">{selected.name}</span>
+                        </span>
+                      )}
+                    </span>
+                  </Listbox.Button>
+
+                  <Transition
+                    show={open}
+                    as={Fragment}
+                    leave="transition ease-in duration-100"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <Listbox.Options className="absolute z-10 mt-1 -ml-6 w-60 bg-white shadow rounded-lg py-3 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm">
+                      {moods.map((mood) => (
+                        <Listbox.Option
+                          key={mood.value}
+                          className={({ active }) =>
+                            classNames(
+                              active ? "bg-gray-100" : "bg-white",
+                              "cursor-default select-none relative py-2 px-3"
+                            )
+                          }
+                          value={mood}
+                        >
+                          <div className="flex items-center">
+                            <div
+                              className={classNames(
+                                mood.bgColor,
+                                "w-8 h-8 rounded-full flex items-center justify-center"
+                              )}
+                            >
+                              <mood.icon
+                                className={classNames(
+                                  mood.iconColor,
+                                  "flex-shrink-0 h-5 w-5"
+                                )}
+                                aria-hidden="true"
+                              />
+                            </div>
+                            <span className="mr-3 block font-medium truncate">
+                              {mood.name}
+                            </span>
+                          </div>
+                        </Listbox.Option>
+                      ))}
+                    </Listbox.Options>
+                  </Transition>
+                </div>
+              </>
+            )}
+          </Listbox>
+        </div>
       </div>
     </div>
   );
