@@ -71,8 +71,20 @@ function classNames(...classes) {
 
 function CardWithAvatar() {
   const [selected, setSelected] = useState(moods[2]);
+  const [likes, setLikes] = useState(0);
+
+  const addlike = () => {
+    if (likes == 1) return;
+    setLikes(1);
+  };
+
+  const removelike = () => {
+    if (likes == 0) return;
+    setLikes(likes - 1);
+  };
+
   return (
-    <div className="bg-indigo-200 p-1 my-5 rounded-md py-5 space-y-3 ">
+    <div className="bg-gray-200 p-1 my-5 rounded-md py-5 space-y-3 ">
       <div className="flex flex-row-reverse">
         <div className="flex-shrink-0">
           <img
@@ -184,7 +196,7 @@ function CardWithAvatar() {
           </Menu>
         </div>
       </div>
-      <div dir="rtl" className="text-gray-700 px-4 pt-5 pb-2 space-y-2 sm:pt-0">
+      <div dir="rtl" className="text-gray-800 px-4 pt-5 pb-2 space-y-2 sm:pt-0">
         <p>
           🎊 كونوا على الموعد مع أول لايف مباشر للدكتور - أحمد خالد مصطفى - حول
           مشروع المختارون.. اليوم 22 مارس ⏱️ على الساعة 10 ليلا بتوقيت مصر 🇪🇬
@@ -196,7 +208,7 @@ function CardWithAvatar() {
               <>
                 <Listbox.Label className="sr-only">Your mood</Listbox.Label>
                 <div className="relative">
-                  <Listbox.Button className="relative -m-2.5 w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-500">
+                  <Listbox.Button className="relative mx-2 w-10 h-10 rounded-full flex items-center justify-end text-gray-400 hover:text-gray-500">
                     <span className="flex items-center justify-center">
                       {selected.value === null ? (
                         <span className="flex items-center">
@@ -222,7 +234,7 @@ function CardWithAvatar() {
                           <span className="sr-only">{selected.name}</span>
                         </span>
                       )}
-                      <span className="mr-2">0</span>
+                      <span className="mr-2">{likes}</span>
                     </span>
                   </Listbox.Button>
 
@@ -245,7 +257,10 @@ function CardWithAvatar() {
                           }
                           value={mood}
                         >
-                          <div className="flex items-center">
+                          <div
+                            onClick={mood.value ? addlike : removelike}
+                            className="flex items-center"
+                          >
                             <div
                               className={classNames(
                                 mood.bgColor,
