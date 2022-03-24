@@ -1,39 +1,151 @@
 /* This example requires Tailwind CSS v2.0+ */
 import {
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
-  UserGroupIcon,
+  DocumentSearchIcon,
+  VideoCameraIcon,
+  DocumentTextIcon,
+  LibraryIcon,
+  DownloadIcon,
+  PuzzleIcon,
+  PrinterIcon,
   PhotographIcon,
+  ViewGridAddIcon,
+  HandIcon,
+  AcademicCapIcon,
+  BeakerIcon,
+  DocumentDuplicateIcon,
+  BookOpenIcon,
+  SparklesIcon,
+  CodeIcon,
+  FilmIcon,
+  MusicNoteIcon,
+  UserGroupIcon,
+  FingerPrintIcon,
 } from "@heroicons/react/outline";
 
 const navigation = [
   {
-    name: "الصفحة الرئيسية",
+    name: "التحقيق في التريندات (الحقائقيون)",
     href: "#",
-    icon: HomeIcon,
+    icon: DocumentSearchIcon,
     current: true,
     count: "5",
   },
-  { name: "المجموعات", href: "#", icon: UserGroupIcon, current: false },
   {
-    name: "المقالات",
+    name: "الألغاز العلمية والتاريخية (الأراميناتي)",
     href: "#",
-    icon: FolderIcon,
+    icon: FingerPrintIcon,
+    current: false,
+  },
+  {
+    name: "الموسوعة العربية الكبرى (أرابيدي)",
+    href: "#",
+    icon: DocumentTextIcon,
     current: false,
     count: "19",
   },
   {
-    name: "الصور",
+    name: "كتب وروايات للعرض على دور النشر (وكالة أرابوك للكتاب)",
     href: "#",
-    icon: PhotographIcon,
+    icon: PrinterIcon,
     current: false,
     count: "20+",
   },
-  { name: "الوثائق", href: "#", icon: InboxIcon, current: false },
-  { name: "الإحصائيات", href: "#", icon: ChartBarIcon, current: false },
+  {
+    name: "كتب وروايات للتحميل المجاني (إصدارات أرابوك للنشر الالكتروني)",
+    href: "#",
+    icon: DownloadIcon,
+    current: false,
+  },
+  {
+    name: "المكتبة العربية الكبرى (أكبر مكتبة لتحميل الكتب مجانا)",
+    href: "#",
+    icon: LibraryIcon,
+    current: false,
+  },
+  {
+    name: "أراتيوب (مكتبة مقاطع الفيديو)",
+    href: "#",
+    icon: VideoCameraIcon,
+    current: false,
+  },
+  {
+    name: "أراجاليري (جاليري الرسومات العربي الأول)",
+    href: "#",
+    icon: ViewGridAddIcon,
+    current: false,
+  },
+  {
+    name: "أرافوتو (ستوديو الصور العربي)",
+    href: "#",
+    icon: PhotographIcon,
+    current: false,
+  },
+  {
+    name: "أراميد (سوق الهاندميد العربي)",
+    href: "#",
+    icon: HandIcon,
+    current: false,
+  },
+  {
+    name: "أراكورس (منصة الكورسات المجانية)",
+    href: "#",
+    icon: AcademicCapIcon,
+    current: false,
+  },
+  {
+    name: "أراساينس (مقاطع مدبلجة لفهم كافة العلوم)",
+    href: "#",
+    icon: BeakerIcon,
+    current: false,
+  },
+  {
+    name: "أرادوك (مكتبة الأفلام الوثائقية)",
+    href: "#",
+    icon: DocumentDuplicateIcon,
+    current: false,
+  },
+  {
+    name: "خدمة القرآن الكريم (قراءات الأعضاء وخدمة المقرأة)",
+    href: "#",
+    icon: BookOpenIcon,
+    current: false,
+  },
+  {
+    name: "أراجيمز (الألعاب العربية)",
+    href: "#",
+    icon: PuzzleIcon,
+    current: false,
+  },
+  {
+    name: "أرااب (برامج بأيدي عربية)",
+    href: "#",
+    icon: CodeIcon,
+    current: false,
+  },
+  {
+    name: "أرافيلم (أفلام مستقلة من صنعنا)",
+    href: "#",
+    icon: FilmIcon,
+    current: false,
+  },
+  {
+    name: "أراساوند (أغاني وأناشيد ذات رسالة سامية)",
+    href: "#",
+    icon: MusicNoteIcon,
+    current: false,
+  },
+  {
+    name: "خدمة الحديث الشريف (موسوعة الأحاديث النبوية الصحيحة)",
+    href: "#",
+    icon: SparklesIcon,
+    current: false,
+  },
+  {
+    name: "جمعية قوت الخيرية (مشروع الإطعام بدون نقود)",
+    href: "#",
+    icon: UserGroupIcon,
+    current: false,
+  },
 ];
 
 function classNames(...classes) {
@@ -42,7 +154,7 @@ function classNames(...classes) {
 
 function VerticalNavigation() {
   return (
-    <nav dir="rtl" className="space-y-1" aria-label="Sidebar">
+    <nav dir="rtl" aria-label="Sidebar">
       {navigation.map((item) => (
         <a
           key={item.name}
