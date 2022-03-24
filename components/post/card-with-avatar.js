@@ -200,9 +200,8 @@ function CardWithAvatar() {
                     <span className="flex items-center justify-center">
                       {selected.value === null ? (
                         <span className="flex items-center">
-                          <span>0</span>
                           <EmojiHappyIcon
-                            className="flex-shrink-0 mr-2 h-5 w-5"
+                            className="flex-shrink-0 h-5 w-5"
                             aria-hidden="true"
                           />
                           <span className="sr-only">Add your mood</span>
@@ -223,6 +222,7 @@ function CardWithAvatar() {
                           <span className="sr-only">{selected.name}</span>
                         </span>
                       )}
+                      <span className="mr-2">0</span>
                     </span>
                   </Listbox.Button>
 
